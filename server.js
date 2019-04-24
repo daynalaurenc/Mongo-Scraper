@@ -40,16 +40,16 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("h2.feed-article__title").each(function(i, element) {
+    $('.feed-article').each(function(i, element) {
         // Save the text and href of each link enclosed in the current element
-        var title = $(element).text();
-        var link = $(element).parent().attr("href");
-        var image = $(element).children().attr('src');
+        const title = $(element).find('.feed-article__title').text();
+        const link = $(element).find('.feed-article__info').attr("href");
+        // const image = $(element).find('.grid-article__img').attr('src');
   
         results.push({
             title: title,
             link: link,
-            image: image
+            // image: image
         })
   
         console.log(results);
@@ -57,7 +57,7 @@ app.get("/scrape", function(req, res) {
         db.Article.create({
           title: title,
           link: link,
-          image: image
+          // image: image
   
         })
     })
