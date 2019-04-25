@@ -1,11 +1,36 @@
 // Grab the articles as a json
-$.getJSON("/articles", function(data) {
+// $.getJSON("/articles", function(data) {
+//     // For each one
+//     for (var i = 0; i < data.length; i++) {
+//       // Display the apropos information on the page
+//       $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+//     }
+//   });
+  
+  $.getJSON("/articles", function (data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
       // Display the apropos information on the page
-      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+      // $(".card-title").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+  
+      $("#articles").append(`
+      <div class="col-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">`+ data[i].title + "<br>" + `</h5>
+            <a href="#" class="card-link">Save</a>
+            <a href="#" class="card-link">Comment</a>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      `);
     }
   });
+
+
+
+
   
   
   // Whenever someone clicks a p tag
