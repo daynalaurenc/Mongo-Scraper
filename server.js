@@ -49,13 +49,15 @@ app.get("/scrape", function(req, res) {
         const title = $(element).find('.media-heading').children('a').text();
         const link = $(element).find('.media-heading').children('a').attr("href");
         const content = $(element).find('.summary').text().trim();
+        // const image = $(element).find('img').attr("src");
         const articleCreated = moment().format("YYYY MM DD hh:mm:ss");
   
         const result = {
             title: title,
             link: link,
             content: content,
-            articleCreated: articleCreated,
+            // image: image,
+            articleCreated: articleCreated
         }
   
         console.log(results);
