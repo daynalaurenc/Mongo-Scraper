@@ -49,27 +49,27 @@ app.get("/scrape", function(req, res) {
         const title = $(element).find('.media-heading').children('a').text();
         const link = $(element).find('.media-heading').children('a').attr("href");
         const content = $(element).find('.summary').text().trim();
-        // const image = $(element).find('img').attr("src");
+        const image = $(element).find('.inner-container').html();
         const articleCreated = moment().format("YYYY MM DD hh:mm:ss");
   
         const result = {
             title: title,
             link: link,
             content: content,
-            // image: image,
+            image: image,
             articleCreated: articleCreated
         }
-  
-        console.log(results);
+        
+        console.log("Result equals", result);
   
         db.Article.findOne({
           title: title
         }).then(function(data){
-          console.log(data);
+          // console.log("Data =", data);
        
           if (data === null) {
             db.Article.create(result).then(function(dbArticle){
-              console.log(dbArticle);
+            //   console.log("Dbarticle=", dbArticle);
             })
           }
         }).catch(function(err){

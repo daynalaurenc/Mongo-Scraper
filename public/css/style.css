@@ -1,0 +1,103 @@
+.container {
+    width: 80%;
+}
+
+/* h2 {
+    font-family: 'Coda Caption', sans-serif;
+    text-transform: uppercase;
+}  */
+
+
+.navigation {
+    border-bottom: 2px solid #9fbfdf;
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: 'Coda Caption', sans-serif;
+    margin-bottom: 20px;
+}
+.by-line {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    
+}
+
+.bg-light {
+    background-color: transparent !important;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+
+.btn-outline-dark {
+    background-color: white;
+    border: 2px solid #6699cc;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.btn-secondary {
+    background-color: #777;
+    border: 2px solid #777;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    /* font-weight: bold; */
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-right: 20px;
+}
+
+
+.card {
+    margin-top: 10px;
+    border: .5px solid;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card h5 {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.card-text {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.card-link {
+    color: #6699cc;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* #bodyinput {
+    width: 100%;
+    height: 10%;
+} */
+
+.footer {
+    margin-top: 50px;
+}
