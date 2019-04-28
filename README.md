@@ -2,7 +2,7 @@
 
 Sports Illustrated News Scraper is a web application that utilizes Mongoose and Cheerio to scrape articles from Sports Illustrated, and allows users to view those articles and make comments.
 
-[Sports Illustrated](https://arcane-gorge-30017.herokuapp.com/ "Sports Illustrated")
+[Sports Illustrated](https:// "Sports Illustrated")
 
 ## Description
 
@@ -10,7 +10,7 @@ Sports Illustrated News Scraper is a web application that utilizes Mongoose and 
 
 ## Sample View
 
-![Sports Illustrated Screenshot](/public/assets/images/screenshot.jpg)
+![Sports Illustrated Screenshot](/public/images/screenshot.jpg)
 
 ## Technology
 
