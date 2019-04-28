@@ -23,6 +23,7 @@ h1 {
     font-family: 'Coda Caption', sans-serif;
     margin-bottom: 20px;
 }
+
 .by-line {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
@@ -30,7 +31,14 @@ h1 {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 40px;
-    
+}
+
+h5 {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: black;
 }
 
 .bg-light {
@@ -81,6 +89,7 @@ h1 {
     font-size: 22px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
     color: black;
 }
 
@@ -96,13 +105,30 @@ h1 {
 }
 
 
-/* #bodyinput {
+textarea#bodyinput {
     width: 100%;
-    height: 10%;
-} */
+    height: 60%;
+    font-family: 'Roboto', sans-serif;
+}
+
+p#note {
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.input {
+    height: 200px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
 
 .footer-copyright {
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
     font-weight: bold;
     letter-spacing: 1.5px;
