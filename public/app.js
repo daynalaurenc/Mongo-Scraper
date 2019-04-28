@@ -8,7 +8,7 @@ console.log(data)
     // $(".card-title").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
 
     $("#articles").append(`
-      <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="col-sm-12 col-md-6 col-lg-12">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">${data[i].title}</h5>
