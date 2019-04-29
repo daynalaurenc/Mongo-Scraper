@@ -54,21 +54,19 @@ $(document).on("click", ".notes", function () {
       console.log(data);
 
       $(".modal-title").append("<h5>" + data.title + "</h5>");
-      // $(".input").append("<textarea id='bodyinput' name='body'></textarea>");
-      // $(".input").append("<button data-id='" + data._id + "' id='savenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>Save Note</button>");
-
-      if (data.note) {
-        $(".input").append("<b>Current Note:</b><span id='note-span'>" + data.note.body + "</span>");
-        $(".input").append("<button data-id='" + data.note._id + "' id='deletenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>X</button>");
+    
+      for (var i = 0; i < data.note.length; i++) {
+        $(".input").append("<span id='note-span'>"+data.note[i].body+"</span>");
+        $(".input").append("<button data-id='" + data.note[i]._id + "' id='deletenote' class='btn btn-outline-dark btn-sm' data-dismiss='modal'>X</button><br>");
       }
+
+      //if (data.note) {
+      //  $(".input").append("<b>Past Note : </b><span id='note-span'>" + data.note.body + "</span>");
+      //  $(".input").append("  <button data-id='" + data.note._id + "' id='deletenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>X</button>");
+     // }
       $(".input").append("<textarea id='bodyinput' name='body'></textarea>");
       $(".input").append("<button data-id='" + data._id + "' id='savenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>Save Note</button>");
 
-      // If there's a note in the article
-      // if (data.note) {
-      //   // Place the body of the note in the body textarea
-      //   $("#bodyinput").val(data.note.body);
-      // }
     });
 });
 
@@ -128,49 +126,3 @@ $(document).on("click", "#deletenote", function () {
 
 
 
-
-
-// var $newItemInput = $("input.new-item");
-// // Our new todos will go inside the todoContainer
-// var $todoContainer = $(".todo-container");
-// // Adding event listeners for deleting, editing, and adding todos
-// $(document).on("click", "button.delete", deleteTodo);
-// $(document).on("click", "button.complete", toggleComplete);
-// $(document).on("click", ".todo-item", editTodo);
-// $(document).on("keyup", ".todo-item", finishEdit);
-// $(document).on("blur", ".todo-item", cancelEdit);
-// $(document).on("submit", "#todo-form", insertTodo);
-
-// // Our initial todos array
-// var todos = [];
-
-// // Getting todos from database when page loads
-// getTodos();
-
-// // This function resets the todos displayed with new todos from the database
-// function initializeRows() {
-//   $todoContainer.empty();
-//   var rowsToAdd = [];
-//   for (var i = 0; i < todos.length; i++) {
-//     rowsToAdd.push(createNewRow(todos[i]));
-//   }
-//   $todoContainer.prepend(rowsToAdd);
-// }
-
-// // This function grabs todos from the database and updates the view
-// function getTodos() {
-//   $.get("/api/todos", function(data) {
-//     todos = data;
-//     initializeRows();
-//   });
-// }
-
-// // This function deletes a todo when the user clicks the delete button
-// function deleteTodo(event) {
-//   event.stopPropagation();
-//   var id = $(this).data("id");
-//   $.ajax({
-//     method: "DELETE",
-//     url: "/api/todos/" + id
-//   }).then(getTodos);
-// }

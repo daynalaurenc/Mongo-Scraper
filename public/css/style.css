@@ -103,6 +103,11 @@ h5 {
     text-align: center;
 }
 
+.modal-body {
+    min-height: 325px;
+}
+
+
 
 textarea#bodyinput {
     width: 100%;
