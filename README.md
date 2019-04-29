@@ -16,11 +16,14 @@ This full-stack site will scrape articles from the Sports Illustrated website.
 
 + The user has the ability to leave a comment on each article in the 'Notes' modal
 
++ The user has the ability to view and remove previous comments for each article
+
 + All scraped parameters and user notes will be recorded and stored in the database in Robo 3T
 
 ## Sample View
 
 ![Sports Illustrated Screenshot](/public/images/screenshot.jpg)
+![Sports Illustrated Screenshot](/public/images/notes.jpg)
 
 ## Technology
 
