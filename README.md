@@ -23,6 +23,8 @@ This full-stack site will scrape articles from the Sports Illustrated website.
 ## Sample View
 
 ![Sports Illustrated Screenshot](/public/images/screenshot.jpg)
+
+
 ![Sports Illustrated Screenshot](/public/images/notes.jpg)
 
 ## Technology
