@@ -1,21 +1,18 @@
 $.getJSON("/articles", function (data) {
-  // For each one
 
-console.log("-------------")
-console.log(data)
+
+  console.log("-------------")
+  console.log(data)
   for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    // $(".card-title").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-
     $("#articles").append(`
-      <div class="col-sm-12 col-md-6 col-lg-12">
+      <div class="col-sm-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">${data[i].title}</h5>
             <p class="card-text">${data[i].content}</p>
             <a href="https://www.si.com${data[i].link}" target="_blank" class="card-link">View Article</a>
             <a href="#" class="card-link notes" data-id="${data[i]._id}" data-toggle="modal" data-target="#myModal">Notes</a>
-          </div>
+            </div>
         </div>
       </div>
       <br><br>
@@ -25,23 +22,22 @@ console.log(data)
 
 // When you click the Fetch button
 $(document).on("click", ".btn-fetch", function () {
-  // alert('Articles up-to-date!');
 
   $.ajax({
     method: "GET",
     url: "/scrape"
   })
     .done(function (data) {
-      setTimeout(function(){
+      setTimeout(function () {
         location.reload();
       }, 2000)
-      
+
     });
 });
 
 // When you click the Note button
-$(document).on("click", ".notes", function() {
-  
+$(document).on("click", ".notes", function () {
+
   $(".modal-title").empty();
   $(".input").empty();
 
@@ -54,23 +50,30 @@ $(document).on("click", ".notes", function() {
     url: "/articles/" + thisId
   })
     // With that done, add the note information to the page
-    .done(function(data) {
+    .done(function (data) {
       console.log(data);
 
       $(".modal-title").append("<h5>" + data.title + "</h5>");
+      // $(".input").append("<textarea id='bodyinput' name='body'></textarea>");
+      // $(".input").append("<button data-id='" + data._id + "' id='savenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>Save Note</button>");
+
+      if (data.note) {
+        $(".input").append("<b>Current Note:</b><span id='note-span'>" + data.note.body + "</span>");
+        $(".input").append("<button data-id='" + data.note._id + "' id='deletenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>X</button>");
+      }
       $(".input").append("<textarea id='bodyinput' name='body'></textarea>");
       $(".input").append("<button data-id='" + data._id + "' id='savenote' class='btn btn-outline-dark btn-sm' style='margin-top:20px;'data-dismiss='modal'>Save Note</button>");
 
       // If there's a note in the article
-      if (data.note) {
-        // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
-      }
+      // if (data.note) {
+      //   // Place the body of the note in the body textarea
+      //   $("#bodyinput").val(data.note.body);
+      // }
     });
 });
 
 // When you click the Save Note button
-$(document).on("click", "#savenote", function() {
+$(document).on("click", "#savenote", function () {
   // Grab the id associated with the article from the submit button
   var thisId = $(this).attr("data-id");
   console.log(thisId);
@@ -84,8 +87,8 @@ $(document).on("click", "#savenote", function() {
       body: $("#bodyinput").val()
     }
   })
-  
-    .done(function(data) {
+
+    .done(function (data) {
       // Log the response
       console.log(data);
       // Empty the notes section
@@ -95,6 +98,36 @@ $(document).on("click", "#savenote", function() {
   // Remove the values entered in the input and textarea for note entry
   $("#bodyinput").val("");
 });
+
+// When you click the Delete Note button
+$(document).on("click", "#deletenote", function () {
+  // Grab the id associated with the article from the submit button
+  var thisId = $(this).attr("data-id");
+  console.log(thisId);
+
+  // Run a POST request to change the note, using what's entered in the inputs
+  $.ajax({
+    method: "POST",
+    url: "/delete/" + thisId,
+    data: {
+      // Value taken from note textarea
+      body: $("#bodyinput").val()
+    }
+  })
+
+    .done(function (data) {
+      // Log the response
+      console.log(data);
+      // Empty the notes section
+      // $("#bodyinput").empty();
+    });
+
+  // Remove the values entered in the input and textarea for note entry
+  $("#bodyinput").val("");
+});
+
+
+
 
 
 // var $newItemInput = $("input.new-item");
